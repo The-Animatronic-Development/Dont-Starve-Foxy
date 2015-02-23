@@ -1,23 +1,23 @@
 PrefabFiles = {
-	"wakkari",
-	"bellstaff",
+	"foxy",
+	"hook",
 }
 
 Assets = {
-    Asset( "IMAGE", "images/saveslot_portraits/wakkari.tex" ),
-    Asset( "ATLAS", "images/saveslot_portraits/wakkari.xml" ),
+    Asset( "IMAGE", "images/saveslot_portraits/foxy.tex" ),
+    Asset( "ATLAS", "images/saveslot_portraits/foxy.xml" ),
 
-    Asset( "IMAGE", "images/selectscreen_portraits/wakkari.tex" ),
-    Asset( "ATLAS", "images/selectscreen_portraits/wakkari.xml" ),
+    Asset( "IMAGE", "images/selectscreen_portraits/foxy.tex" ),
+    Asset( "ATLAS", "images/selectscreen_portraits/foxy.xml" ),
 	
-    Asset( "IMAGE", "images/selectscreen_portraits/wakkari_silho.tex" ),
-    Asset( "ATLAS", "images/selectscreen_portraits/wakkari_silho.xml" ),
+    Asset( "IMAGE", "images/selectscreen_portraits/foxy_silho.tex" ),
+    Asset( "ATLAS", "images/selectscreen_portraits/foxy_silho.xml" ),
 
-    Asset( "IMAGE", "bigportraits/wakkari.tex" ),
-    Asset( "ATLAS", "bigportraits/wakkari.xml" ),
+    Asset( "IMAGE", "bigportraits/foxy.tex" ),
+    Asset( "ATLAS", "bigportraits/foxy.xml" ),
 	
-	Asset( "IMAGE", "images/map_icons/wakkari.tex" ),
-	Asset( "ATLAS", "images/map_icons/wakkari.xml" ),
+	Asset( "IMAGE", "images/map_icons/foxy.tex" ),
+	Asset( "ATLAS", "images/map_icons/foxy.xml" ),
 
 	Asset("ATLAS", "images/inventoryimages/houndmound.xml"),
 	Asset("IMAGE", "images/inventoryimages/houndmound.tex"),
@@ -31,20 +31,20 @@ local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 
 -- The character select screen lines
-STRINGS.CHARACTER_TITLES.wakkari = "The Red Fox"
-STRINGS.CHARACTER_NAMES.wakkari = "Wakkari"
-STRINGS.CHARACTER_DESCRIPTIONS.wakkari = "*Sly cousin of hounds\n*Good at escaping\n*Vegetables? No, thank you."
-STRINGS.CHARACTER_QUOTES.wakkari = "\"Fur and horns? I don't adore them...\""
+STRINGS.CHARACTER_TITLES.foxy = "The Red Fox"
+STRINGS.CHARACTER_NAMES.foxy = "foxy"
+STRINGS.CHARACTER_DESCRIPTIONS.foxy = "*The Animatronic Fox\n*Good at escaping\n*Vegetables? No, I Dont Eat."
+STRINGS.CHARACTER_QUOTES.foxy = "\"People I Scare Them\""
 
 -- Custom speech strings
-STRINGS.CHARACTERS.WAKKARI = require "speech_wakkari"
+STRINGS.CHARACTERS.foxy = require "speech_foxy"
 
 -- Custom items
-STRINGS.NAMES.BELLSTAFF = "Fox Tribe Bell Staff"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.BELLSTAFF = "Tricky looking staff with bells."
+STRINGS.NAMES.hook = "Foxy's Hook"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.hook = "A Dangerous Looking Hook"
 
 -- Let the game know character is male, female, or robot
-table.insert(GLOBAL.CHARACTER_GENDERS.MALE, "wakkari")
+table.insert(GLOBAL.CHARACTER_GENDERS.MALE, "foxy")
 
 -- Function to make beefalo hostile to character
 local makeBeefaloHostile = function (prefab)
@@ -54,13 +54,13 @@ local makeBeefaloHostile = function (prefab)
             local target = nil
             -- First retarget normally
             if targetfn_orig then target = targetfn_orig(inst) end
-            -- If no target found, target Wakkari
+            -- If no target found, target foxy
             if target == nil then
                 target = GLOBAL.FindEntity(inst, GLOBAL.TUNING.BEEFALO_TARGET_DIST, function(guy)
                     return not guy:HasTag("beefalo") and
                             inst.components.combat:CanTarget(guy) and
                             not guy:HasTag("wall")
-                            and guy.prefab == "wakkari"
+                            and guy.prefab == "foxy"
                 end)
             end
             return target
@@ -70,6 +70,6 @@ local makeBeefaloHostile = function (prefab)
 end
  
 AddPrefabPostInit("beefalo", makeBeefaloHostile)
-AddMinimapAtlas("images/map_icons/wakkari.xml")
-AddModCharacter("wakkari")
+AddMinimapAtlas("images/map_icons/foxy.xml")
+AddModCharacter("foxy")
 
