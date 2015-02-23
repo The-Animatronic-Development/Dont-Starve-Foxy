@@ -1,7 +1,7 @@
 -- This information tells other players more about the mod
-name = "Foxy Fox"
-description = "Foxy Fox character mod"
-author = "The Animatronic Fox Team"
+name = "Foxy The Fox"
+description = "Foxy The Fox character mod"
+author = "The Animatronic Mods Team"
 version = "0.5.12" -- This is the version of the template. Change it to your own number.
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
